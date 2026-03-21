@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("sql105.infinityfree.com","if0_41445512","KVHnPikip92dT8","if0_41445512_gestionarticulos");
+$conn = new mysqli("localhost","root","","streaming_store");
 
 $result = $conn->query("SELECT * FROM productos");
 ?>
@@ -32,6 +32,11 @@ border-radius:10px;
 width:250px;
 }
 
+.card img{
+width:150px;
+margin-bottom:10px;
+}
+
 button{
 background:#28a745;
 border:none;
@@ -52,13 +57,15 @@ background:#218838;
 <body>
 
 <h1>Streaming Connect</h1>
-<h1>Venta de Cuentas Streaming</h1>
+<h1>Venta de Cuentas de Streaming</h1>
 
 <div class="container">
 
 <?php while($row=$result->fetch_assoc()){ ?>
 
 <div class="card">
+
+<img src="<?php echo $row['imagen']; ?>">
 
 <h2><?php echo $row['nombre']; ?></h2>
 
