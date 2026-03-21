@@ -1,0 +1,79 @@
+<?php
+$conn = new mysqli("sql105.infinityfree.com","if0_41445512","KVHnPikip92dT8","if0_41445512_gestionarticulos");
+
+$result = $conn->query("SELECT * FROM productos");
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Streaming Connect</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#111;
+color:white;
+text-align:center;
+}
+
+.container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.card{
+background:#222;
+margin:15px;
+padding:20px;
+border-radius:10px;
+width:250px;
+}
+
+button{
+background:#28a745;
+border:none;
+padding:10px;
+color:white;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#218838;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Venta de Cuentas Streaming</h1>
+
+<div class="container">
+
+<?php while($row=$result->fetch_assoc()){ ?>
+
+<div class="card">
+
+<h2><?php echo $row['nombre']; ?></h2>
+
+<p>Precio: $<?php echo $row['precio']; ?> COP</p>
+
+<a href="https://wa.me/573001234567?text=Quiero%20comprar%20<?php echo $row['nombre']; ?>">
+
+<button>Comprar</button>
+
+</a>
+
+</div>
+
+<?php } ?>
+
+</div>
+
+</body>
+</html>
