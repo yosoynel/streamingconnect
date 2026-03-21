@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost","root","","streaming_store");
+$conn = new mysqli("sql105.infinityfree.com","if0_41445512","KVHnPikip92dT8","if0_41445512_gestionarticulos");
 
 $result = $conn->query("SELECT * FROM productos");
 ?>
