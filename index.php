@@ -51,6 +51,7 @@ background:#218838;
 
 <body>
 
+<h1>Streaming Connect</h1>
 <h1>Venta de Cuentas Streaming</h1>
 
 <div class="container">
@@ -63,7 +64,7 @@ background:#218838;
 
 <p>Precio: $<?php echo $row['precio']; ?> COP</p>
 
-<a href="https://wa.me/573001234567?text=Quiero%20comprar%20<?php echo $row['nombre']; ?>">
+<a href="https://wa.me/573235830919?text=Quiero%20comprar%20<?php echo $row['nombre']; ?>">
 
 <button>Comprar</button>
 
