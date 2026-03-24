@@ -154,7 +154,7 @@ document.querySelector(".header-links").classList.toggle("active");
 
 <div class="logo">
 <a href="index.php">
-<img src="logo.png" alt="Streaming Connect">
+<img src="imagenes/logo.png" alt="Streaming Connect">
 </a>
 </div>
 
