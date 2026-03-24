@@ -62,7 +62,7 @@ font-size:16px;
 color:#28a745;
 }
 
-/* AREA DERECHA FUTURA */
+/* AREA DERECHA */
 
 .header-right{
 width:150px;
@@ -79,12 +79,12 @@ display:none;
 color:white;
 }
 
-/* SIDEBAR MOVIL */
+/* SIDEBAR MOVIL (AHORA DERECHA) */
 
 .mobile-menu{
 position:fixed;
 top:0;
-left:-260px;
+right:-260px;
 width:260px;
 height:100%;
 background:#222;
@@ -103,6 +103,19 @@ font-size:18px;
 
 .mobile-menu a:hover{
 background:#333;
+}
+
+/* OVERLAY OSCURO */
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+display:none;
+z-index:1500;
 }
 
 /* TITULO */
@@ -176,12 +189,26 @@ display:block;
 function toggleMenu(){
 
 let menu=document.getElementById("mobileMenu");
+let overlay=document.getElementById("overlay");
 
-if(menu.style.left=="0px"){
-menu.style.left="-260px";
+if(menu.style.right=="0px"){
+
+menu.style.right="-260px";
+overlay.style.display="none";
+
 }else{
-menu.style.left="0px";
+
+menu.style.right="0px";
+overlay.style.display="block";
+
 }
+
+}
+
+function closeMenu(){
+
+document.getElementById("mobileMenu").style.right="-260px";
+document.getElementById("overlay").style.display="none";
 
 }
 
@@ -194,10 +221,6 @@ menu.style.left="0px";
 <header>
 
 <div class="header-container">
-
-<!-- BOTON MOVIL -->
-
-<div class="hamburger" onclick="toggleMenu()">☰</div>
 
 <!-- LOGO IZQUIERDA -->
 
@@ -219,9 +242,11 @@ menu.style.left="0px";
 
 </div>
 
-<!-- AREA DERECHA -->
+<!-- BOTON MOVIL DERECHA -->
 
 <div class="header-right">
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
 
 </div>
 
@@ -230,7 +255,12 @@ menu.style.left="0px";
 </header>
 
 
-<!-- MENU MOVIL -->
+<!-- OVERLAY -->
+
+<div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+
+<!-- MENU MOVIL DERECHA -->
 
 <div id="mobileMenu" class="mobile-menu">
 
