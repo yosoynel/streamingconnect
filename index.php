@@ -293,7 +293,7 @@ document.getElementById("overlay").style.display="none";
 
 <p>Precio: $<?php echo $row['precio']; ?> COP</p>
 
-<a href="https://wa.me/573235830919?text=Quiero%20comprar%20<?php echo $row['nombre']; ?>">
+<a href="https://wa.me/573235830919?text=Hola👋​%Quiero%20comprar%20<?php echo $row['nombre']; ?>">
 
 <button>Comprar</button>
 
