@@ -20,7 +20,7 @@ color:#000000;
 margin:0;
 }
 
-/* HEADER NEGRO PROFESIONAL */
+/* HEADER */
 
 header{
 background:#000;
@@ -36,13 +36,9 @@ justify-content:space-between;
 padding:12px 30px;
 }
 
-/* LOGO IZQUIERDA */
-
 .logo img{
 height:75px;
 }
-
-/* MENU CENTRADO */
 
 .nav-center{
 flex:1;
@@ -62,15 +58,11 @@ font-size:16px;
 color:#28a745;
 }
 
-/* AREA DERECHA */
-
 .header-right{
 width:150px;
 display:flex;
 justify-content:flex-end;
 }
-
-/* BOTON HAMBURGER */
 
 .hamburger{
 font-size:30px;
@@ -78,8 +70,6 @@ cursor:pointer;
 display:none;
 color:white;
 }
-
-/* SIDEBAR MOVIL (AHORA DERECHA) */
 
 .mobile-menu{
 position:fixed;
@@ -105,8 +95,6 @@ font-size:18px;
 background:#333;
 }
 
-/* OVERLAY OSCURO */
-
 .overlay{
 position:fixed;
 top:0;
@@ -118,14 +106,10 @@ display:none;
 z-index:1500;
 }
 
-/* TITULO */
-
 .title{
 text-align:center;
 margin-top:20px;
 }
-
-/* PRODUCTOS */
 
 .container{
 display:flex;
@@ -167,8 +151,6 @@ font-weight:bold;
 button:hover{
 background:#218838;
 }
-
-/* RESPONSIVE */
 
 @media(max-width:768px){
 
@@ -222,68 +204,51 @@ document.getElementById("overlay").style.display="none";
 
 <div class="header-container">
 
-<!-- LOGO IZQUIERDA -->
-
 <div class="logo">
 <a href="index.php">
 <img src="imagenes/logo.png">
 </a>
 </div>
 
-<!-- MENU CENTRADO PC -->
-
 <div class="nav-center">
-
 <a href="index.php">Inicio</a>
 <a href="store.php">Tienda</a>
 <a href="tutoriales.php">Tutoriales</a>
 <a href="soporte.php">Soporte</a>
 <a href="contacto.php">Contacto</a>
-
 </div>
 
-<!-- BOTON MOVIL DERECHA -->
-
 <div class="header-right">
-
 <div class="hamburger" onclick="toggleMenu()">☰</div>
-
 </div>
 
 </div>
 
 </header>
 
-
-<!-- OVERLAY -->
-
 <div id="overlay" class="overlay" onclick="closeMenu()"></div>
 
-
-<!-- MENU MOVIL DERECHA -->
-
 <div id="mobileMenu" class="mobile-menu">
-
 <a href="index.php">Inicio</a>
 <a href="store.php">Tienda</a>
 <a href="tutoriales.php">Tutoriales</a>
 <a href="soporte.php">Soporte</a>
 <a href="contacto.php">Contacto</a>
-
 </div>
-
 
 <div class="title">
-
 <h1>Streaming Connect</h1>
 <p>Entretenimiento a tu gusto</p>
-
 </div>
-
 
 <div class="container">
 
 <?php while($row=$result->fetch_assoc()){ ?>
+
+<?php
+$mensaje = "Hola 👋 Quiero comprar {$row['nombre']} por $ {$row['precio']} COP";
+$mensaje_codificado = rawurlencode($mensaje);
+?>
 
 <div class="card">
 
@@ -291,9 +256,9 @@ document.getElementById("overlay").style.display="none";
 
 <h2><?php echo $row['nombre']; ?></h2>
 
-<p>Precio: $<?php echo $row['precio']; ?> COP</p>
+<p>Precio: $<?php echo number_format($row['precio'],0,',','.'); ?> COP</p>
 
-<a href="https://wa.me/573235830919?text=Hola%20%F0%9F%91%8B%20Quiero%20comprar%20<?php echo urlencode($row['nombre']); ?>%20por%20$<?php echo $row['precio']; ?>">
+<a href="https://wa.me/573235830919?text=<?php echo $mensaje_codificado; ?>">
 
 <button>Comprar</button>
 
@@ -304,7 +269,6 @@ document.getElementById("overlay").style.display="none";
 <?php } ?>
 
 </div>
-
 
 </body>
 </html>
