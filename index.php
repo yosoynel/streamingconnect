@@ -9,6 +9,8 @@ $result = $conn->query("SELECT * FROM productos");
 <head>
 <title>Streaming Connect</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 
 body{
@@ -18,11 +20,10 @@ color:#000000;
 margin:0;
 }
 
-/* HEADER */
+/* HEADER NEGRO PROFESIONAL */
 
 header{
-background:#ffffff;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
+background:#000;
 position:sticky;
 top:0;
 z-index:1000;
@@ -32,34 +33,76 @@ z-index:1000;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:10px 30px;
+padding:12px 30px;
 }
+
+/* LOGO IZQUIERDA */
 
 .logo img{
-height:60px;
+height:75px;
 }
 
-.header-links{
+/* MENU CENTRADO */
+
+.nav-center{
+flex:1;
 display:flex;
-gap:20px;
+justify-content:center;
+gap:35px;
 }
 
-.menu-item a{
+.nav-center a{
 text-decoration:none;
-color:#333;
+color:white;
 font-weight:bold;
+font-size:16px;
 }
 
-.menu-item a:hover{
+.nav-center a:hover{
 color:#28a745;
 }
 
-/* HAMBURGER */
+/* AREA DERECHA FUTURA */
+
+.header-right{
+width:150px;
+display:flex;
+justify-content:flex-end;
+}
+
+/* BOTON HAMBURGER */
 
 .hamburger{
-font-size:28px;
+font-size:30px;
 cursor:pointer;
 display:none;
+color:white;
+}
+
+/* SIDEBAR MOVIL */
+
+.mobile-menu{
+position:fixed;
+top:0;
+left:-260px;
+width:260px;
+height:100%;
+background:#222;
+padding-top:100px;
+transition:0.3s;
+z-index:2000;
+}
+
+.mobile-menu a{
+display:block;
+padding:18px;
+text-decoration:none;
+color:white;
+font-size:18px;
+}
+
+.mobile-menu a:hover{
+background:#333;
 }
 
 /* TITULO */
@@ -86,6 +129,11 @@ border-radius:10px;
 width:250px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
 text-align:center;
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 .card img{
@@ -111,19 +159,8 @@ background:#218838;
 
 @media(max-width:768px){
 
-.header-links{
+.nav-center{
 display:none;
-flex-direction:column;
-background:white;
-position:absolute;
-top:70px;
-right:20px;
-padding:15px;
-box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
-
-.header-links.active{
-display:flex;
 }
 
 .hamburger{
@@ -137,7 +174,15 @@ display:block;
 <script>
 
 function toggleMenu(){
-document.querySelector(".header-links").classList.toggle("active");
+
+let menu=document.getElementById("mobileMenu");
+
+if(menu.style.left=="0px"){
+menu.style.left="-260px";
+}else{
+menu.style.left="0px";
+}
+
 }
 
 </script>
@@ -150,21 +195,33 @@ document.querySelector(".header-links").classList.toggle("active");
 
 <div class="header-container">
 
+<!-- BOTON MOVIL -->
+
 <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<!-- LOGO IZQUIERDA -->
 
 <div class="logo">
 <a href="index.php">
-<img src="imagenes/logo.png" alt="Streaming Connect">
+<img src="imagenes/logo.png">
 </a>
 </div>
 
-<div class="header-links">
+<!-- MENU CENTRADO PC -->
 
-<div class="menu-item"><a href="index.php">Inicio</a></div>
-<div class="menu-item"><a href="store.php">Tienda</a></div>
-<div class="menu-item"><a href="tutoriales.php">Tutoriales</a></div>
-<div class="menu-item"><a href="soporte.php">Soporte</a></div>
-<div class="menu-item"><a href="contacto.php">Contacto</a></div>
+<div class="nav-center">
+
+<a href="index.php">Inicio</a>
+<a href="store.php">Tienda</a>
+<a href="tutoriales.php">Tutoriales</a>
+<a href="soporte.php">Soporte</a>
+<a href="contacto.php">Contacto</a>
+
+</div>
+
+<!-- AREA DERECHA -->
+
+<div class="header-right">
 
 </div>
 
@@ -173,9 +230,24 @@ document.querySelector(".header-links").classList.toggle("active");
 </header>
 
 
+<!-- MENU MOVIL -->
+
+<div id="mobileMenu" class="mobile-menu">
+
+<a href="index.php">Inicio</a>
+<a href="store.php">Tienda</a>
+<a href="tutoriales.php">Tutoriales</a>
+<a href="soporte.php">Soporte</a>
+<a href="contacto.php">Contacto</a>
+
+</div>
+
+
 <div class="title">
+
 <h1>Streaming Connect</h1>
 <p>Entretenimiento a tu gusto</p>
+
 </div>
 
 
