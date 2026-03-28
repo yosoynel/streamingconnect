@@ -1,6 +1,7 @@
 <?php
+// Forzar cabecera UTF-8 para evitar problemas de codificación
+header('Content-Type: text/html; charset=utf-8');
 $conn = new mysqli("mysql-streamingconnect.alwaysdata.net","streamingconnect","clase1234","streamingconnect_pagina");
-
 $result = $conn->query("SELECT * FROM productos WHERE categoria IS NULL OR categoria <> 'combos'");
 ?>
 
@@ -246,9 +247,8 @@ document.getElementById("overlay").style.display="none";
 <?php while($row=$result->fetch_assoc()){ ?>
 
 
+
 <?php
-// Forzar cabecera UTF-8 para evitar problemas de codificación
-header('Content-Type: text/html; charset=utf-8');
 $mensaje = "Hola 👋 Quiero comprar {$row['nombre']} por $ {$row['precio']} COP";
 $mensaje_codificado = rawurlencode($mensaje);
 ?>
