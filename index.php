@@ -212,9 +212,9 @@ document.getElementById("overlay").style.display="none";
 
 <div class="nav-center">
 <a href="index.php">Inicio</a>
-<a href="store.php">Tienda</a>
-<a href="tutoriales.php">Tutoriales</a>
-<a href="soporte.php">Soporte</a>
+<a href="combos.php">Combos</a>
+<a href="Tv Box.php">Tv Box</a>
+<a href="Juegos.php">Juegos</a>
 <a href="contacto.php">Contacto</a>
 </div>
 
