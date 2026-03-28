@@ -1,7 +1,7 @@
 <?php
 $conn = new mysqli("mysql-streamingconnect.alwaysdata.net","streamingconnect","clase1234","streamingconnect_pagina");
 
-$result = $conn->query("SELECT * FROM productos");
+$result = $conn->query("SELECT * FROM productos WHERE categoria IS NULL OR categoria <> 'combos'");
 ?>
 
 <!DOCTYPE html>
