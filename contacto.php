@@ -51,9 +51,9 @@ function closeMenu(){document.getElementById("mobileMenu").style.right="-260px";
 <div id="overlay" class="overlay" onclick="closeMenu()"></div>
 <div id="mobileMenu" class="mobile-menu">
 <a href="index.php">Inicio</a>
-<a href="store.php">Tienda</a>
-<a href="tutoriales.php">Tutoriales</a>
-<a href="soporte.php">Soporte</a>
+<a href="combos.php">Combos</a>
+<a href="Tv Box.php">Tv Box</a>
+<a href="Juegos.php">Juegos</a>
 <a href="contacto.php">Contacto</a>
 </div>
 <div class="title">
