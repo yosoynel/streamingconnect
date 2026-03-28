@@ -1,6 +1,7 @@
-<?php
-$conn = new mysqli("mysql-streamingconnect.alwaysdata.net","streamingconnect","clase1234","streamingconnect_pagina");
 
+<?php
+header('Content-Type: text/html; charset=utf-8');
+$conn = new mysqli("mysql-streamingconnect.alwaysdata.net","streamingconnect","clase1234","streamingconnect_pagina");
 $result = $conn->query("SELECT * FROM productos WHERE categoria = 'tvbox'");
 ?>
 
